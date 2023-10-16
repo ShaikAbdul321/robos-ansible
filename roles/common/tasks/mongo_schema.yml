@@ -7,3 +7,6 @@
   ansible.builtin.yum:
     name: mongodb-org-shell
     state: latest
+
+- name: Loading Schema
+  ansible.builtin.shell: mongo --host mongodb-dev.rkdevops.store </app/schema/catalogue.js

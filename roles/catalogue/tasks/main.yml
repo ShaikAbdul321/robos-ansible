@@ -7,6 +7,3 @@
   ansible.builtin.include_role:
     name: common
     tasks_from: mongo_schema
-
-- name: Loading Schema
-  ansible.builtin.shell: mongo --host mongodb-dev.rkdevops.store </app/schema/catalogue.js
