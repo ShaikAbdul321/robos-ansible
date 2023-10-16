@@ -1,0 +1,25 @@
+- name: Downloading Nodejs repo file
+  ansible.builtin.shell: curl -sL https://rpm.nodesource.com/setup_lts.x | bash
+
+- name: Installing Nodejs server
+  ansible.builtin.yum:
+    name: nodejs
+    state: latest
+
+- name: Configuring app_start
+  ansible.builtin.include_tasks:
+    file: app_start.yml
+
+- name: Installing Nodejs dependencies
+  ansible.builtin.shell: npm install
+  args:
+    chdir: /app
+
+- name: Copying service file
+  ansible.builtin.copy:
+    src: catalogue.service
+    dest: /etc/systemd/system/catalogue.service
+
+- name: Service Restartng and Enabling
+  ansible.builtin.include_tasks:
+    file: service_start.yml

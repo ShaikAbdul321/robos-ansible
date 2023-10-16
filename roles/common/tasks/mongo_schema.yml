@@ -1,0 +1,34 @@
+- name: Copying service file
+  ansible.builtin.copy:
+    src: mongodb.repo
+    dest: /etc/yum.repos.d/mongodb.repo
+
+- name: Installing Mongodb
+  ansible.builtin.yum:
+    name: mongodb-org-shell
+    state: latest
+
+
+
+
+
+
+
+
+
+
+
+
+
+  mongo_schema()
+  {
+    echo -e "$color DOWNLOADING AND INSTALLING THE MONGODB SCHEMA$nocolor"
+    cp /root/roboshop-shell/mongodb.repo /etc/yum.repos.d/mongodb.repo
+    status
+    echo -e "$color Installing Mongo schema$nocolor"
+    yum install mongodb-org-shell -y &>>${ logfile }
+    status
+    echo -e "$color Loading schema$nocolor"
+    mongo --host mongodb-dev.sindhu.cloud <${ app_path }/schema/${ component }.js &>>${ logfile }
+    status
+  }
