@@ -5,7 +5,7 @@
 
 - name: Installing Mongodb
   ansible.builtin.yum:
-    name: mongodb
+    name: mongodb-org
     state: latest
 
 - name: Changing listen address
