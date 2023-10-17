@@ -1,7 +1,7 @@
 - name: Copying service file
   ansible.builtin.copy:
     src: mongodb.repo
-    dest: /etc/yum.repos.d/mongodb.repo
+    dest: /etc/yum.repos.d/{{ component }}.repo
 
 - name: Installing Mongodb
   ansible.builtin.yum:
@@ -9,4 +9,4 @@
     state: latest
 
 - name: Loading Schema
-  ansible.builtin.shell: mongo --host mongodb-dev.nasreen.cloud </app/schema/catalogue.js
+  ansible.builtin.shell: mongo --host mongodb-dev.nasreen.cloud </app/schema/{{ component }}.js
