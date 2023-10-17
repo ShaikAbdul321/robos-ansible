@@ -1,0 +1,9 @@
+- name: Configuring Nodejs server
+  ansible.builtin.include_role:
+    name: common
+    tasks_from: nodejs
+
+- name: Configuring mongodb server
+  ansible.builtin.include_role:
+    name: common
+    tasks_from: mongo_schema
