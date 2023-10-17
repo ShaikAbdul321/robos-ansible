@@ -20,28 +20,3 @@
 - name: Service Restartng and Enabling
   ansible.builtin.include_tasks:
     file: service_start.yml
-
-
-
-
-
-
-
-
-
-
-
-  maven()
-    {
-      echo -e "$color Installing maven server$nocolor"
-      yum install maven -y &>>${logfile}
-      status_check
-      app_start
-      echo -e "$color Downloading dependencies and builiding application to ${component} server$nocolor"
-      mvn clean package &>>${logfile}
-      status_check
-      mv target/${component}-1.0.jar ${component}.jar &>>${logfile}
-      status_check
-      mysql_schema
-      service_start
-    }
