@@ -1,4 +1,4 @@
-- name: Starting and Enabling catalogue server
+- name: Starting and Enabling {{ component }} server
   ansible.builtin.service:
     name: catalogue
     state: restarted
