@@ -4,11 +4,11 @@ Description=Payment Service
 [Service]
 User=root
 WorkingDirectory=/app
-Environment=CART_HOST=cart-dev.nasreen.cloud
+Environment=CART_HOST=cart-{{env}}.nasreen.cloud
 Environment=CART_PORT=8080
-Environment=USER_HOST=user-dev.nasreen.cloud
+Environment=USER_HOST=user-{{env}}.nasreen.cloud
 Environment=USER_PORT=8080
-Environment=AMQP_HOST=rabbitmq-dev.nasreen.cloud
+Environment=AMQP_HOST=rabbitmq-{{env}}.nasreen.cloud
 Environment=AMQP_USER=roboshop
 Environment=AMQP_PASS=roboshop123
 
