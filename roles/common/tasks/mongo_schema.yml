@@ -1,7 +1,7 @@
 - name: Copying service file
   ansible.builtin.copy:
     src: mongodb.repo
-    dest: /etc/yum.repos.d/{{ component }}.repo
+    dest: /etc/yum.repos.d/mongodb.repo
 
 - name: Installing Mongodb
   ansible.builtin.yum:

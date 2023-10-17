@@ -4,4 +4,4 @@
     state: latest
 
 - name: Loading Schema
-  ansible.builtin.shell: mysql -h mysql-dev.nasreen.cloud -uroot -pRoboShop@1 </app/schema/shipping.sql
+  ansible.builtin.shell: mysql -h mysql-dev.nasreen.cloud -uroot -pRoboShop@1 </app/schema/{{ component }}.sql
