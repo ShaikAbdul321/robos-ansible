@@ -1,9 +1,9 @@
 - name: Configuring maven service
   ansible.builtin.include_role:
     name: common
-    tasks_from: maven
+    tasks_from: maven.yml
 
 - name: Configuring mysql service
   ansible.builtin.include_role:
     name: common
-    tasks_from: mysql_schema
+    tasks_from: mysql_schema.yml
