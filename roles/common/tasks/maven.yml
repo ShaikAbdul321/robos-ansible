@@ -1,0 +1,47 @@
+- name: Installing Maven service
+  ansible.builtin.yum:
+    name: maven
+    state: latest
+
+- name: Configuring app_start
+  ansible.builtin.include_tasks:
+    file: app_start.yml
+
+- name: Installing Maven clean package
+  ansible.builtin.shell: mvn clean package
+  args:
+    chdir: /app
+
+- name: Builiding application to shipping
+  ansible.builtin.shell: mv target/shipping-1.0.jar shipping.jar
+  args:
+    chdir: /app
+
+- name: Service Restartng and Enabling
+  ansible.builtin.include_tasks:
+    file: service_start.yml
+
+
+
+
+
+
+
+
+
+
+
+  maven()
+    {
+      echo -e "$color Installing maven server$nocolor"
+      yum install maven -y &>>${logfile}
+      status_check
+      app_start
+      echo -e "$color Downloading dependencies and builiding application to ${component} server$nocolor"
+      mvn clean package &>>${logfile}
+      status_check
+      mv target/${component}-1.0.jar ${component}.jar &>>${logfile}
+      status_check
+      mysql_schema
+      service_start
+    }
