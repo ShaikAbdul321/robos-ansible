@@ -17,6 +17,11 @@
   args:
     chdir: /app
 
+- name: Copying service file
+  ansible.builtin.copy:
+    src: "{{ component }}.service"
+    dest: /etc/systemd/system/{{ component }}.service
+
 - name: Service Restartng and Enabling
   ansible.builtin.include_tasks:
     file: service_start.yml
