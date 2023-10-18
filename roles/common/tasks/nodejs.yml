@@ -20,6 +20,10 @@
     src: "{{ component }}.service"
     dest: /etc/systemd/system/{{ component }}.service
 
+- name: Loading Mongo schema
+  ansible.builtin.include_tasks:
+    file: mongo_schema.yml
+
 - name: Service Restartng and Enabling
   ansible.builtin.include_tasks:
     file: service_start.yml
