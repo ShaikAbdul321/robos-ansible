@@ -4,7 +4,7 @@ Description = User Service
 User=roboshop
 Environment=MONGO=true
 Environment=REDIS_HOST=redis-{{env}}.nasreen.cloud
-Environment=MONGO_URL="mongodb://mongodb-{{env}}.nasreen.cloud:27017/users"
+Environment=MONGO_URL="mongodb://mongodb-{{env}}.shaik.website:27017/users"
 ExecStart=/bin/node /app/server.js
 SyslogIdentifier=user
 
