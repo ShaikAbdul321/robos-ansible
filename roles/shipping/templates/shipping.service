@@ -3,8 +3,8 @@ Description=Shipping Service
 
 [Service]
 User=roboshop
-Environment=CART_ENDPOINT=cart-{{env}}.nasreen.cloud:8080
-Environment=DB_HOST=mysql-{{env}}.nasreen.cloud
+Environment=CART_ENDPOINT=cart-{{env}}.shaik.website:8080
+Environment=DB_HOST=mysql-{{env}}.shaik.website
 ExecStart=/bin/java -jar /app/shipping.jar
 SyslogIdentifier=shipping
 
